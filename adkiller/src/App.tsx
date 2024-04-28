@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Container } from '@mui/material';
+import Home from './pages/Home';
+import Pnf from './pages/Pnf';
+import Stage from './pages/Stage';
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <>
+      <BrowserRouter>
+
+        <Container className="main-content" sx={{ marginTop: "9vh", marginBottom: "9vh" }}>
+          <Routes>
+            <Route path={"/"} element={<Home />} />
+            <Route path={"/stage"} element={<Stage />} />
+            <Route path="/*" element={<Pnf />} />
+          </Routes>
+        </Container>
+
+      </BrowserRouter>
+    </>
+  )
+};
 
 export default App;
