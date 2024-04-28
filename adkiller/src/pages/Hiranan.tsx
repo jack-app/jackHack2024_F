@@ -4,7 +4,7 @@ const Hiranan = () => {
   return (
     <>
       <h1>
-        ひらなん
+        もとみつ
       </h1>
       <Button
         component={Link}
