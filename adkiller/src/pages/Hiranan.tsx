@@ -8,7 +8,7 @@ const Hiranan = () => {
       </h1>
       <Button
         component={Link}
-        to={"/"}>
+        to={"/chahan"}>
         kouki
       </Button>
     </>
