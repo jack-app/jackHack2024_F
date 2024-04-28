@@ -4,7 +4,7 @@ const Chahan = () => {
   return (
     <>
       <h1>
-        チャーハン
+        天津飯
       </h1>
       <Button
         component={Link}
