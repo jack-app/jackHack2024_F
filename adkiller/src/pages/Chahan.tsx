@@ -9,7 +9,7 @@ const Chahan = () => {
       <Button
         component={Link}
         to={"/"}>
-        homeへ
+        dsia
       </Button>
     </>
   );
