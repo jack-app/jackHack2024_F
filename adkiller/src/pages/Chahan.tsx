@@ -8,7 +8,7 @@ const Chahan = () => {
       </h1>
       <Button
         component={Link}
-        to={"/"}>
+        to={"/hiranan"}>
         dsia
       </Button>
     </>
