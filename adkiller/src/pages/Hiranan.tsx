@@ -9,7 +9,7 @@ const Hiranan = () => {
       <Button
         component={Link}
         to={"/"}>
-        homeへ
+        kouki
       </Button>
     </>
   );
