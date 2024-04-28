@@ -11,6 +11,16 @@ const Home = () => {
         to={"/stage"}>
         stageへ
       </Button>
+      <Button
+        component={Link}
+        to={"/chahan"}>
+        チャーハン
+      </Button>
+      <Button
+        component={Link}
+        to={"/hiranan"}>
+        ひらなん
+      </Button>
     </>
   );
 };
