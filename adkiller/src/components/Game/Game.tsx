@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 // import useGame from './useGame';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from "react";
 
 const OBSTACLE_WIDTH = 20;
 const PLAYER_WIDTH = 20;
@@ -10,10 +10,10 @@ const JUMP_HEIGHT = 100; // ジャンプの高さ (px)
 const GROUND_POSITION = 0;
 
 type tMatter = {
-  x: number,
-  y: number,
-  l: number,
-}
+  x: number;
+  y: number;
+  l: number;
+};
 
 const useGame = () => {
   // ゲームが開始しているかのフラグ
@@ -21,7 +21,9 @@ const useGame = () => {
   // スコアを記録する
   const [score, setScore] = useState<number>(0);
   // 障害物の現在の位置
-  const [obstaclePosition, setObstaclePosition] = useState<number>(window.innerWidth);
+  const [obstaclePosition, setObstaclePosition] = useState<number>(
+    window.innerWidth
+  );
   // プレイヤーの場所
   const [playerPosition, setPlayerPosition] = useState<number>(GROUND_POSITION);
   // ジャンプ中かどうか
@@ -40,7 +42,7 @@ const useGame = () => {
   const jump = useCallback(() => {
     if (!isJumping && !gameOver) {
       setIsJumping(true);
-      setTimeout(() => setIsJumping(false), JUMP_DURATION);
+      setTimeout(() => setIsJumping(false), JUMP_DURATION, JUMP_HEIGHT);
     }
   }, [isJumping, gameOver]);
 
@@ -78,16 +80,32 @@ const useGame = () => {
     }
   }, [isRunning, updateGame, gameOver]);
 
-  return { isRunning, score, obstaclePosition, playerPosition, startGame, jump, gameOver };
+  return {
+    isRunning,
+    score,
+    obstaclePosition,
+    playerPosition,
+    startGame,
+    jump,
+    gameOver,
+  };
 };
 
 // export default useGame;
 const Game: React.FC = () => {
-  const { isRunning, score, obstaclePosition, playerPosition, startGame, jump, gameOver } = useGame();
+  const {
+    isRunning,
+    score,
+    obstaclePosition,
+    playerPosition,
+    startGame,
+    jump,
+    gameOver,
+  } = useGame();
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.code === 'Space') {
+      if (event.key === "Space") {
         jump();
       }
     };
@@ -96,12 +114,12 @@ const Game: React.FC = () => {
       jump();
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('click', handleClick);
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("click", handleClick);
 
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('click', handleClick);
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("click", handleClick);
     };
   }, [jump]);
 
@@ -113,22 +131,22 @@ const Game: React.FC = () => {
       {isRunning && (
         <div>
           <div>Score: {score}</div>
-          <div style={{ position: 'relative', height: 200 }}>
+          <div style={{ position: "relative", height: 200 }}>
             <div
               style={{
-                position: 'absolute',
+                position: "absolute",
                 left: obstaclePosition,
-                backgroundColor: 'black',
+                backgroundColor: "black",
                 width: OBSTACLE_WIDTH,
                 height: 20,
               }}
             />
             <div
               style={{
-                position: 'absolute',
+                position: "absolute",
                 left: playerPosition,
                 bottom: 0,
-                backgroundColor: 'red',
+                backgroundColor: "red",
                 width: PLAYER_WIDTH,
                 height: 20,
               }}
