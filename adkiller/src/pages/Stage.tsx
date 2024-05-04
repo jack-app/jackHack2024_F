@@ -1,19 +1,9 @@
-import { Link } from "react-router-dom";
-import { Button } from "@mui/material";
 import Generator from "../components/Ads/Generator";
 import Ad from "../components/Ads/Ad";
 const Stage = () => {
   return (
     <>
-      <h1>
-        ステージ
-      </h1>
-
-      <Button
-        component={Link}
-        to={"/"}>
-        homeへ
-      </Button>
+      {/* ゲーム班 */}
 
       <Generator />
       <Ad
@@ -23,41 +13,42 @@ const Stage = () => {
         numCloseY={100}
         strClass="hiranan-chaos"
       />
-       <Ad
+      <Ad
         strImg={`${process.env.PUBLIC_URL}/neko.png`}
         strLink="https://flobal.jp/160.html"
         numCloseX={100}
         numCloseY={100}
         strClass="hiranan-dokidoki"
       />
-       <Ad
+      <Ad
         strImg={`${process.env.PUBLIC_URL}/neko.png`}
         strLink="https://flobal.jp/160.html"
         numCloseX={100}
         numCloseY={100}
         strClass="test"
       />
-       <Ad
+      <Ad
         strImg={`${process.env.PUBLIC_URL}/neko.png`}
         strLink="https://flobal.jp/160.html"
         numCloseX={100}
         numCloseY={100}
         strClass="chahan-circle"
       />
-       <Ad
+      <Ad
         strImg={`${process.env.PUBLIC_URL}/neko.png`}
         strLink="https://flobal.jp/160.html"
         numCloseX={100}
         numCloseY={100}
         strClass="fade"
       />
-       <Ad
+      <Ad
         strImg={`${process.env.PUBLIC_URL}/neko.png`}
         strLink="https://flobal.jp/160.html"
         numCloseX={100}
         numCloseY={100}
         strClass="A"
       />
+
     </>
   );
 };
