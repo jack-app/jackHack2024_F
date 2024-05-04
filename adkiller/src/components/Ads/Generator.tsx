@@ -36,6 +36,22 @@ const lsNumClose = [
   100,
 ];
 
+const lsNumStartX = [
+  -0.3,
+  -0.15, 
+  0, 
+  0.15,
+  0.3
+]
+
+const lsNumStartY = [
+  0,
+  0.25,
+  0.5,
+  0.75,
+  1,
+]
+
 const lsStrClass = [
   "hiranan-chaos",
   "hiranan-dokidoki",
@@ -77,6 +93,8 @@ const Generator: React.FC<tGenerator> = (props) => {
           numCloseX: getRandomEle(lsNumClose) ?? -1,
           numCloseY: getRandomEle(lsNumClose) ?? -1,
           strClass: getRandomEle(lsStrClass) ?? "ERROR_CLASS",
+          numStartX: getRandomEle(lsNumStartX)??-200, 
+          numStartY: getRandomEle(lsNumStartY) ?? -200, 
         }
 
 
