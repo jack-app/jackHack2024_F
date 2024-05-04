@@ -9,50 +9,7 @@ const Stage = () => {
     <>
 
       {/* ゲーム班 */}
-
-      <Generator />
-      <Ad
-        strImg="/neko.png"
-        strLink="https://flobal.jp/160.html"
-        numCloseX={100}
-        numCloseY={100}
-        strClass="hiranan-chaos"
-      />
-      <Ad
-        strImg={`${process.env.PUBLIC_URL}/neko.png`}
-        strLink="https://flobal.jp/160.html"
-        numCloseX={100}
-        numCloseY={100}
-        strClass="hiranan-dokidoki"
-      />
-      <Ad
-        strImg={`${process.env.PUBLIC_URL}/neko.png`}
-        strLink="https://flobal.jp/160.html"
-        numCloseX={100}
-        numCloseY={100}
-        strClass="test"
-      />
-      <Ad
-        strImg={`${process.env.PUBLIC_URL}/neko.png`}
-        strLink="https://flobal.jp/160.html"
-        numCloseX={100}
-        numCloseY={100}
-        strClass="chahan-circle"
-      />
-      <Ad
-        strImg={`${process.env.PUBLIC_URL}/neko.png`}
-        strLink="https://flobal.jp/160.html"
-        numCloseX={100}
-        numCloseY={100}
-        strClass="chahan-fade"
-      />
-      <Ad
-        strImg={`${process.env.PUBLIC_URL}/neko.png`}
-        strLink="https://flobal.jp/160.html"
-        numCloseX={100}
-        numCloseY={100}
-        strClass="sinryoku-A"
-      />
+      <Game />
 
     </>
   );

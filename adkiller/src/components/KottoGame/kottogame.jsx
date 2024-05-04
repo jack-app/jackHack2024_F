@@ -1,131 +1,7 @@
-// import React, { useState, useEffect, useCallback } from "react";
-
-// const GAME_WIDTH = 800;
-// const GAME_HEIGHT = 600;
-// const PLAYER_SIZE = 50;
-// const OBSTACLE_SIZE = 50;
-// const OBSTACLE_SPEED = 5;
-
-// const KottoGame = () => {
-//   const [playerX, setPlayerX] = useState(0);
-//   const [playerY, setPlayerY] = useState(0);
-//   const [obstacleX, setObstacleX] = useState(
-//     Math.random() * (GAME_WIDTH - OBSTACLE_SIZE)
-//   );
-//   const [obstacleY, setObstacleY] = useState(GAME_HEIGHT);
-//   const [gameOver, setGameOver] = useState(false);
-//   const [score, setScore] = useState(0);
-
-//   const startGame = () => {
-//     setPlayerX(GAME_WIDTH / 2 - PLAYER_SIZE / 2);
-//     setPlayerY(0);
-//     setObstacleX(Math.random() * (GAME_WIDTH - OBSTACLE_SIZE));
-//     setObstacleY(GAME_HEIGHT);
-//     setGameOver(false);
-//     setScore(0);
-//   };
-
-//   const movePlayer = useCallback(
-//     (event) => {
-//       if (!gameOver) {
-//         if (event.key === "ArrowLeft" && playerX > 0) {
-//           setPlayerX(playerX - 50);
-//         } else if (
-//           event.key === "ArrowRight" &&
-//           playerX < GAME_WIDTH - PLAYER_SIZE
-//         ) {
-//           setPlayerX(playerX + 50);
-//         }
-//         // else if (
-//         //   event.key === "ArrowUp" &&
-//         //   playerY < GAME_HEIGHT - PLAYER_SIZE
-//         // ) {
-//         //   setPlayerY(playerY + 50);
-//         // } else if (event.key === "ArrowDown" && playerY >= 0) {
-//         //   setPlayerY(playerY - 50);
-//         // }
-//       }
-//     },
-//     [playerX, gameOver]
-//   );
-
-//   useEffect(() => {
-//     const handleKeyDown = (event) => {
-//       movePlayer(event);
-//     };
-
-//     window.addEventListener("keydown", handleKeyDown);
-
-//     return () => {
-//       window.removeEventListener("keydown", handleKeyDown);
-//     };
-//   }, [movePlayer]);
-
-//   useEffect(() => {
-//     const gameLoop = setInterval(() => {
-//       if (!gameOver) {
-//         setObstacleX(obstacleX - OBSTACLE_SPEED);
-
-//         if (obstacleX < -OBSTACLE_SIZE) {
-//           setObstacleX(GAME_WIDTH);
-//           setScore(score + 1);
-//         }
-
-//         if (obstacleY === playerY) {
-//           if (obstacleX > playerX && obstacleX < playerX + PLAYER_SIZE) {
-//             setGameOver(true);
-//           }
-//         }
-//       }
-//     }, 20);
-
-//     return () => clearInterval(gameLoop);
-//   }, [obstacleX, playerX, gameOver, score]);
-
-//   return (
-//     <div>
-//       <h1>Obstacle Avoider</h1>
-//       <div style={{ display: "flex", justifyContent: "center" }}>
-//         <div
-//           style={{
-//             width: GAME_WIDTH,
-//             height: GAME_HEIGHT,
-//             border: "1px solid black",
-//             position: "relative",
-//           }}
-//         >
-//           <div
-//             style={{
-//               width: PLAYER_SIZE,
-//               height: PLAYER_SIZE,
-//               backgroundColor: "blue",
-//               position: "absolute",
-//               left: playerX,
-//               bottom: playerY,
-//             }}
-//           />
-//           <div
-//             style={{
-//               width: OBSTACLE_SIZE,
-//               height: OBSTACLE_SIZE,
-//               backgroundColor: "red",
-//               position: "absolute",
-//               left: obstacleX,
-//               bottom: obstacleY,
-//             }}
-//           />
-//         </div>
-//       </div>
-//       <p>Score: {score}</p>
-//       {gameOver && <p>Game Over</p>}
-//       <button onClick={startGame}>Start Game</button>
-//     </div>
-//   );
-// };
-
-// export default KottoGame;
-
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
+import Generator from "../Ads/Generator";
+import { Box, Button } from "@mui/material";
+import { adContext } from "../../App";
 
 const GAME_WIDTH = 800;
 const GAME_HEIGHT = 600;
@@ -133,6 +9,7 @@ const PLAYER_SIZE = 50;
 const OBSTACLE_SIZE = 50;
 const OBSTACLE_SPEED = 5;
 const OBSTACLE_SPAWN_RATE = 1000; // 障害物の出現間隔(ミリ秒)
+
 
 const Game = () => {
   const [playerX, setPlayerX] = useState(GAME_WIDTH / 2 - PLAYER_SIZE / 2);
@@ -239,7 +116,6 @@ const Game = () => {
 
         // 新しい障害物を生成
 
-        console.log(time - Date.now());
         if (Date.now() - time > OBSTACLE_SPAWN_RATE) {
           setObstacles((prevObstacles) => [
             ...prevObstacles,
@@ -286,9 +162,27 @@ const Game = () => {
     return () => clearInterval(gameLoop);
   }, [obstacles, playerX, playerY, gameOver, score]);
 
+  // const { valNull, setValNull, valRun, setValRun } = (useContext(adContext) || {});
+  const [isAdRunning, setIsAdRunning] = useState(false);
+  const [isAdNully, setisAdNully] = useState(true);
   return (
     <div>
       <h1>あかい四角をよけろ！</h1>
+
+      <Generator
+        running={isAdRunning}
+        nully={isAdNully}
+      />:
+
+      {/* <Box>
+        {adNully}
+      </Box> */}
+      {/* 広告 */}
+      {/* {isRestart ?? 
+        <>
+        </>
+      } */}
+
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div
           style={{
@@ -326,6 +220,21 @@ const Game = () => {
       <p>Score: {score}</p>
       {gameOver && <p>Game Over</p>}
       <button onClick={startGame}>Start Game</button>
+      <Button
+        onClick={() => {
+          setisAdNully(!isAdNully)
+
+        }}
+      >
+        {`nully→${isAdNully}`}
+      </Button>
+      <Button
+        onClick={() => {
+          setIsAdRunning(!isAdRunning)
+        }}
+      >
+        {`running→${isAdRunning}`}
+      </Button>
     </div>
   );
 };
