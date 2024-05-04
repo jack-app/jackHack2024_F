@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Ad, { tAd } from './Ad';
 
+
+// ADのランダム生成
+
+
 // インターバルの指定
 const AD_INTERVAL = 1000
 
