@@ -1,5 +1,10 @@
 /* https://tabibitojin.com/css-floating-pounding-button/ */
 /* https://qiita.com/swan2pink/items/b9b310cfe4c9ee3fcfa1 */
+/* * {
+  position: fixed;
+  left: 300px;
+  top: 300px;
+} */
 
 .test {
   transition-property: transform, background, box-shadow, color;

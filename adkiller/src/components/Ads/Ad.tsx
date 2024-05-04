@@ -3,13 +3,16 @@ import { Box, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import "./Ad.css";
 
-const Ad: React.FC<{
+
+export type tAd = {
   strImg: string,
   strLink: string,
   numCloseX: number,
   numCloseY: number,
   strClass: string,
-}> = (props) => {
+}
+
+const Ad: React.FC<tAd> = (props) => {
   // 画面に表示するかのフラグ．
   const [isShow, setIsShow] = useState<boolean>(true);
 
