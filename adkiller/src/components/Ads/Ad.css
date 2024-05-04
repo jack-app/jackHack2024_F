@@ -194,3 +194,67 @@
     transform: translate(0, 0);
   }
 }
+
+.hiranan-right {
+  animation-name: hiranan-right-func;
+  animation-delay: 0s;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  /* アニメーションの動き（徐々に早く徐々に遅く）*/
+  animation-iteration-count: infinite;
+  /* アニメーションをループさせる */
+}
+
+@keyframes hiranan-right-func {
+  0% {
+    transform: translate(-500px, 0);
+  }
+
+  25% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(500px, 0);
+  }
+
+  75% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(-500px, 0);
+  }
+}
+
+.hiranan-Y {
+  animation-name: Y-func;
+  animation-delay: 0s;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  /* アニメーションの動き（徐々に早く徐々に遅く）*/
+  animation-iteration-count: infinite;
+  /* アニメーションをループさせる */
+}
+
+@keyframes Y-func {
+  0% {
+    transform: translate(0, -300px);
+  }
+
+  25% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(0, 300px);
+  }
+
+  75% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(0, -300px);
+  }
+}

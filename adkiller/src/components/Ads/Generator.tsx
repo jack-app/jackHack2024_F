@@ -42,6 +42,8 @@ const lsStrClass = [
   "chahan-circle",
   "chahan-fade",
   "sinryoku-A",
+  "hiranan-right",
+  "hiranan-Y",
 ]
 
 export type tGenerator = {

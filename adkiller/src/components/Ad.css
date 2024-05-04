@@ -1,0 +1,122 @@
+/* https://tabibitojin.com/css-floating-pounding-button/ */
+/* https://qiita.com/swan2pink/items/b9b310cfe4c9ee3fcfa1 */
+
+.test {
+  transition-property: transform, background, box-shadow, color;
+  transition-duration: 2s;
+}
+
+.test:hover {
+  box-shadow: 3px 3px 3px #8a7070;
+  transform: scale(.5);
+  background: red;
+  color: #8a7070;
+}
+
+.move {
+  animation-name: move-func;
+  animation-delay: 0s;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  /* アニメーションの動き（徐々に早く徐々に遅く）*/
+  animation-iteration-count: infinite;
+  /* アニメーションをループさせる */
+}
+
+@keyframes move-func {
+  0% {
+    transform: translate(0, 0) rotate(0deg) rotate3d(1, 1, 1, 0deg );
+  }
+
+  25% {
+    transform: translate(100px, 50px) rotate(120deg) rotate3d(1, 1, 1, 90deg);
+  }
+
+  50% {
+    transform: translate(200px, 250px) rotate(290deg) rotate3d(1, 1, 1, 180deg);
+  }
+
+  75% {transform: translate(-100px, 50px) rotate(-50deg);
+  }
+
+  100% {transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+
+.dokidoki {
+  animation-name: dokidoki-any-name;
+  /* アニメーション名の指定 */
+  animation-delay: 0s;
+  /* アニメーションの開始時間指定 */
+  animation-duration: 3s;
+  /* アニメーション動作時間の指定 */
+  animation-timing-function: ease-in-out;
+  /* アニメーションの動き（徐々に早く徐々に遅く）*/
+  animation-iteration-count: infinite;
+  /* アニメーションをループさせる */
+}
+
+@keyframes dokidoki-any-name {
+  0% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+
+  60% {
+    transform: scale(0.3);
+  }
+
+  100% {
+    transform: scale(2.0);
+  }
+}
+
+.hiranan-right {
+  animation-name: hiranan-right-func;
+  animation-delay: 0s;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  /* アニメーションの動き（徐々に早く徐々に遅く）*/
+  animation-iteration-count: infinite;
+  /* アニメーションをループさせる */
+}
+
+@keyframes hiranan-right-func {
+  0% {
+    transform: translate(-500px, 0);
+  }
+
+  25% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(500, 0);
+  }
+
+  75% {transform: translate(0, 0);
+  }
+
+  100% {transform: translate(-500px, 0);
+  }
+}
+
+.hiranan-skew {
+  animation-name: hiranan-skew-func;
+  animation-delay: 0s;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  /* アニメーションの動き（徐々に早く徐々に遅く）*/
+  animation-iteration-count: infinite;
+  /* アニメーションをループさせる */
+}
+
+
