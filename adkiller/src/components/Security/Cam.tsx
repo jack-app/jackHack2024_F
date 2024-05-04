@@ -1,5 +1,5 @@
 import { useRef, useState, useCallback } from "react";
-import Webcam from "react-webcam";
+// import Webcam from "react-webcam";
 // import "./styles.css";
 
 const videoConstraints = {
@@ -9,19 +9,19 @@ const videoConstraints = {
 };
 
 export const Cam = () => {
-  const [isCaptureEnable, setCaptureEnable] = useState<boolean>(false);
-  const webcamRef = useRef<Webcam>(null);
-  const [url, setUrl] = useState<string | null>(null);
-  const capture = useCallback(() => {
-    const imageSrc = webcamRef.current?.getScreenshot();
-    if (imageSrc) {
-      setUrl(imageSrc);
-    }
-  }, [webcamRef]);
+  // const [isCaptureEnable, setCaptureEnable] = useState<boolean>(false);
+  // const webcamRef = useRef<Webcam>(null);
+  // const [url, setUrl] = useState<string | null>(null);
+  // const capture = useCallback(() => {
+  //   const imageSrc = webcamRef.current?.getScreenshot();
+  //   if (imageSrc) {
+  //     setUrl(imageSrc);
+  //   }
+  // }, [webcamRef]);
 
   return (
     <>
-      <header>
+      {/* <header>
         <h1>カメラアプリ</h1>
       </header>
       {isCaptureEnable || (
@@ -60,7 +60,7 @@ export const Cam = () => {
             <img src={url} alt="Screenshot" />
           </div>
         </>
-      )}
+      )} */}
     </>
   );
 };
