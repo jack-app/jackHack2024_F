@@ -22,6 +22,7 @@ function getRandomEle<T>(arr: T[]) {
 const lsStrImg = [
   `${process.env.PUBLIC_URL}/neko.png`,
   `${process.env.PUBLIC_URL}/logo512.png`,
+  `${process.env.PUBLIC_URL}/furya.png`,
 ];
 
 const lsStrLink = [
@@ -35,8 +36,11 @@ const lsNumClose = [
 ];
 
 const lsStrClass = [
-  "move",
-  "test",
+  "hiranan-chaos",
+  "hiranan-dokidoki",
+  "chahan-circle",
+  "fade",
+  "A",
 ]
 
 

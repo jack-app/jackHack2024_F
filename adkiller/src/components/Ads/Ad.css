@@ -18,7 +18,7 @@
   color: #8a7070;
 }
 
-.move {
+.hiranan-chaos {
   animation-name: move-func;
   animation-delay: 0s;
   animation-duration: 3s;
@@ -30,28 +30,28 @@
 
 @keyframes move-func {
   0% {
-    transform: translate(0, 0);
+    transform: translate(0, 0) rotate(0deg) rotate3d(1, 1, 1, 90deg);
   }
 
   25% {
-    transform: translate(100px, 0);
+    transform: translate(100px, 50px) rotate(120deg) rotate3d(1, 1, 1, 180deg);
   }
 
   50% {
-    transform: translate(100px, 100px);
+    transform: translate(200px, 250px) rotate(290deg);
   }
 
   75% {
-    transform: translate(0, 100px);
+    transform: translate(-100, 50px) rotate(-50deg);
   }
 
   100% {
-    transform: translate(0, 0);
+    transform: translate(0, 0) rotate(0deg);
   }
 }
 
 
-.dokidoki {
+.hiranan-dokidoki {
   animation-name: dokidoki-any-name;
   /* アニメーション名の指定 */
   animation-delay: 0s;
@@ -70,18 +70,82 @@
   }
 
   40% {
-    transform: scale(1);
+    transform: scale(1.5);
   }
 
   50% {
-    transform: scale(1.1);
+    transform: scale(0.5);
   }
 
   60% {
-    transform: scale(1);
+    transform: scale(2.0);
   }
 
   100% {
     transform: scale(1);
   }
 }
+
+.chahan-circle{
+  animation-name: circle;
+  animation-delay: 0s;
+  animation-duration: 8s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  }
+  @keyframes circle {
+    0% {
+      transform: rotate(0deg)
+     }
+    40%{
+      transform: rotate(360deg)
+    }
+    50% {
+      transform: rotate(540deg)
+    }
+    70%{
+    transform: rotate(720deg)
+    }
+    80%{
+      transform: rotate(540deg)
+    }
+    100%{
+      transform: rotate(360deg)
+    }
+  }
+
+
+  .fade{
+  animation-name: fade;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;}
+  @keyframes fade {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  .A {
+    animation-name: A-func;
+    animation-delay: 0s;
+    animation-duration: 3s;
+    animation-timing-function: linear(0, 1.32, 0.87, 1.05, 0.98, 1.01, 1, 1);
+    animation-iteration-count: infinite;
+  }
+  @keyframes A-func {
+    0% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(100px, 0);
+    }
+    50% {
+      transform: translate(100px, 100px);
+    }
+    75% {
+      transform: translate(0, 100px);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
