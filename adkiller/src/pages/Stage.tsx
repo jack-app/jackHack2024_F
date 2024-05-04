@@ -1,12 +1,18 @@
 import Generator from "../components/Ads/Generator";
+import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
+import Game from "../components/KottoGame/kottogame";
 
 const Stage = () => {
   return (
     <>
-      {/* ゲーム班 */}
+      <h1>ステージ</h1>
 
-      <Generator />
+      <Button component={Link} to={"/"}>
+        homeへ
+      </Button>
 
+      <Game />
     </>
   );
 };
