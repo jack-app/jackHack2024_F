@@ -11,6 +11,8 @@ export type tAd = {
   numCloseX: number,
   numCloseY: number,
   strClass: string,
+  numStartX:number,
+  numStartY:number, 
 }
 
 const Ad: React.FC<tAd> = (props) => {
@@ -24,7 +26,8 @@ const Ad: React.FC<tAd> = (props) => {
         (
           <Box className={`${props.strClass}`} display="flex" justifyContent="center" alignItems="center" position="relative"
             sx={{
-              top: window.innerHeight / 2
+              top: window.innerHeight*props.numStartY,
+              left: window.innerWidth*props.numStartX
             }}
           >
             {/* 広告描画 */}
