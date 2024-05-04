@@ -1,19 +1,9 @@
-import { Link } from "react-router-dom";
-import { Button } from "@mui/material";
 import Generator from "../components/Ads/Generator";
 import Ad from "../components/Ads/Ad";
 const Stage = () => {
   return (
     <>
-      <h1>
-        ステージ
-      </h1>
-
-      <Button
-        component={Link}
-        to={"/"}>
-        homeへ
-      </Button>
+      {/* ゲーム班 */}
 
       <Generator />
       <Ad

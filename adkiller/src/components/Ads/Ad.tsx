@@ -3,6 +3,7 @@ import { Box, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import "./Ad.css";
 
+const SIZE = 100
 
 export type tAd = {
   strImg: string,
@@ -23,29 +24,53 @@ const Ad: React.FC<tAd> = (props) => {
         (
           <Box className={props.strClass} display="flex" justifyContent="center" alignItems="center" position="relative">
             {/* 広告描画 */}
-            <img
-              src={props.strImg}
-              alt="Your Image"
-              onClick={() => { window.open(props.strLink, '_blank'); }}
-              style={{ maxWidth: '100%', maxHeight: '100%' }} />
-
-            {/* 閉じるアイコン */}
-            <IconButton
-              aria-label="Close"
-              onClick={() => { setIsShow(false) }}
+            <Box
               sx={{
                 position: 'absolute',
-                top: `${props.numCloseY}%`,
-                left: `${props.numCloseX}%`,
-                color: 'white',
-                backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                '&:hover': {
-                  backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                },
+                zIndex: 1,
               }}
             >
-              <CloseIcon />
-            </IconButton>
+
+              <img
+                src={props.strImg}
+                onClick={() => { window.open(props.strLink, '_blank'); }}
+                style={{
+                  maxWidth: `${SIZE}px`,
+                  maxHeight: `${SIZE}px`
+                }} />
+            </Box>
+
+            {/* 閉じるアイコン */}
+            <Box
+              sx={{
+                position: 'absolute',
+                zIndex: -1
+                // top: `${-SIZE}px`,
+              }}
+            >
+
+              <IconButton
+                aria-label="Close"
+                onClick={() => { setIsShow(false) }}
+                sx={{
+                  // position: 'absolute',
+                  top: `${props.numCloseY - SIZE / 2}px`,
+                  left: `${props.numCloseX - SIZE / 2}px`,
+                  // top: `${SIZE}px`,
+                  // left: `${SIZE}px`,
+                  // top: "0px",
+                  // left: "0px",
+                  color: 'white',
+                  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                  '&:hover': {
+                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                  },
+                }}
+              >
+                <CloseIcon />
+              </IconButton>
+            </Box>
+
           </Box>
         )}
     </>
