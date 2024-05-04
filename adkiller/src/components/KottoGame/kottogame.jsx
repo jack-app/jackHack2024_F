@@ -162,26 +162,18 @@ const Game = () => {
     return () => clearInterval(gameLoop);
   }, [obstacles, playerX, playerY, gameOver, score]);
 
-  // const { valNull, setValNull, valRun, setValRun } = (useContext(adContext) || {});
-  const [isAdRunning, setIsAdRunning] = useState(false);
-  const [isAdNully, setisAdNully] = useState(true);
+  // 広告の初期値
+  const [isAdRunning, setIsAdRunning] = useState(true);
+  const [isAdNully, setisAdNully] = useState(false);
   return (
     <div>
       <h1>あかい四角をよけろ！</h1>
 
+      {/* 広告生成場所 */}
       <Generator
         running={isAdRunning}
         nully={isAdNully}
       />:
-
-      {/* <Box>
-        {adNully}
-      </Box> */}
-      {/* 広告 */}
-      {/* {isRestart ?? 
-        <>
-        </>
-      } */}
 
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div
@@ -220,6 +212,7 @@ const Game = () => {
       <p>Score: {score}</p>
       {gameOver && <p>Game Over</p>}
       <button onClick={startGame}>Start Game</button>
+      {/* 広告消去(このボタン消して良いよ) */}
       <Button
         onClick={() => {
           setisAdNully(!isAdNully)
@@ -228,6 +221,7 @@ const Game = () => {
       >
         {`nully→${isAdNully}`}
       </Button>
+      {/* 広告生成停止(このボタン消して良いよ．) */}
       <Button
         onClick={() => {
           setIsAdRunning(!isAdRunning)

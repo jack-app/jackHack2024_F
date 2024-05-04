@@ -22,7 +22,11 @@ const Ad: React.FC<tAd> = (props) => {
       {/* 表示フラグが立っているときのみ表示 */}
       {isShow &&
         (
-          <Box className={props.strClass} display="flex" justifyContent="center" alignItems="center" position="relative">
+          <Box className={`${props.strClass}`} display="flex" justifyContent="center" alignItems="center" position="relative"
+            sx={{
+              top: window.innerHeight / 2
+            }}
+          >
             {/* 広告描画 */}
             <Box
               sx={{

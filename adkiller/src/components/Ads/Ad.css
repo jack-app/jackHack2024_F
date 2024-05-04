@@ -86,77 +86,111 @@
   }
 }
 
-.chahan-circle{
+.chahan-circle {
   animation-name: circle;
   animation-delay: 0s;
   animation-duration: 8s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+}
+
+@keyframes circle {
+  0% {
+    transform: rotate(0deg)
   }
-  @keyframes circle {
-    0% {
-      transform: rotate(0deg)
-     }
-    40%{
-      transform: rotate(360deg)
-    }
-    50% {
-      transform: rotate(540deg)
-    }
-    70%{
+
+  40% {
+    transform: rotate(360deg)
+  }
+
+  50% {
+    transform: rotate(540deg)
+  }
+
+  70% {
     transform: rotate(720deg)
-    }
-    80%{
-      transform: rotate(540deg)
-    }
-    100%{
-      transform: rotate(360deg)
-    }
   }
 
-
-  .chahan-fade{
-    --max-value: 70%
-    animation-name: fade;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;}
-    
-    @keyframes chahan-fade {
-      0%{transform: translata(0,0);
-        opacity: 1;}
-      10%{opacity: 0;}
-      20%{transform: translata(100px,0);
-        opacity: 1;}
-      30%{opacity: 0;}
-      40%{transform: translata(100px,100px);
-        opacity: 1;}
-      50%{opacity: 0;}
-      60%{transform: translata(0,100px);
-        opacity: 1;}
-      70%{opacity: 0;}
-    }
-
-  .sinryoku-A {
-    animation-name: A-func;
-    animation-delay: 0s;
-    animation-duration: 3s;
-    animation-timing-function: linear(0, 1.32, 0.87, 1.05, 0.98, 1.01, 1, 1);
-    animation-iteration-count: infinite;
+  80% {
+    transform: rotate(540deg)
   }
-  @keyframes A-func {
-    0% {
-      transform: translate(0, 0);
-    }
-    25% {
-      transform: translate(100px, 0);
-    }
-    50% {
-      transform: translate(100px, 100px);
-    }
-    75% {
-      transform: translate(0, 100px);
-    }
-    100% {
-      transform: translate(0, 0);
-    }
+
+  100% {
+    transform: rotate(360deg)
   }
+}
+
+
+.chahan-fade {
+  --max-value: 70% animation-name: fade;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes chahan-fade {
+  0% {
+    transform: translata(0, 0);
+    opacity: 1;
+  }
+
+  10% {
+    opacity: 0;
+  }
+
+  20% {
+    transform: translata(100px, 0);
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 0;
+  }
+
+  40% {
+    transform: translata(100px, 100px);
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  60% {
+    transform: translata(0, 100px);
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0;
+  }
+}
+
+.sinryoku-A {
+  animation-name: A-func;
+  animation-delay: 0s;
+  animation-duration: 3s;
+  animation-timing-function: linear(0, 1.32, 0.87, 1.05, 0.98, 1.01, 1, 1);
+  animation-iteration-count: infinite;
+}
+
+@keyframes A-func {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(100px, 0);
+  }
+
+  50% {
+    transform: translate(100px, 100px);
+  }
+
+  75% {
+    transform: translate(0, 100px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
