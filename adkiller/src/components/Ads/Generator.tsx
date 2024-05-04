@@ -39,8 +39,8 @@ const lsStrClass = [
   "hiranan-chaos",
   "hiranan-dokidoki",
   "chahan-circle",
-  "fade",
-  "A",
+  "chahan-fade",
+  "sinryoku-A",
 ]
 
 

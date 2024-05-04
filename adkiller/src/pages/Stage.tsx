@@ -39,14 +39,14 @@ const Stage = () => {
         strLink="https://flobal.jp/160.html"
         numCloseX={100}
         numCloseY={100}
-        strClass="fade"
+        strClass="chahan-fade"
       />
       <Ad
         strImg={`${process.env.PUBLIC_URL}/neko.png`}
         strLink="https://flobal.jp/160.html"
         numCloseX={100}
         numCloseY={100}
-        strClass="A"
+        strClass="sinryoku-A"
       />
 
     </>
