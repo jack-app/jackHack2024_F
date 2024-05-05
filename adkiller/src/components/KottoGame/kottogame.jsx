@@ -11,6 +11,8 @@ const OBSTACLE_SPEED = 5;
 const OBSTACLE_SPAWN_RATE = 1000; // 障害物の出現間隔(ミリ秒)
 
 
+
+
 const Game = () => {
   const [playerX, setPlayerX] = useState(GAME_WIDTH / 2 - PLAYER_SIZE / 2);
   const [playerY, setPlayerY] = useState(GAME_HEIGHT - PLAYER_SIZE);
@@ -173,7 +175,24 @@ const Game = () => {
       <Generator
         running={isAdRunning}
         nully={isAdNully}
-        interval={100}
+        interval={1000}
+        listStartX={[
+          -0.3,
+          -0.15, 
+          0, 
+          0.15,
+          0.3
+        ]}
+        listStartY={[
+          // 0,
+          // 0.25,
+          0.5,
+          // 0.75,
+          // 1,
+        ]}
+      
+
+        
 
       />:
 
