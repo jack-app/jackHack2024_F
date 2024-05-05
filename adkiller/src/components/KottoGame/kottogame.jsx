@@ -10,7 +10,6 @@ const OBSTACLE_SIZE = 50;
 const OBSTACLE_SPEED = 5;
 const OBSTACLE_SPAWN_RATE = 1000; // 障害物の出現間隔(ミリ秒)
 
-
 const Game = () => {
   const [playerX, setPlayerX] = useState(GAME_WIDTH / 2 - PLAYER_SIZE / 2);
   const [playerY, setPlayerY] = useState(GAME_HEIGHT - PLAYER_SIZE);
@@ -20,6 +19,10 @@ const Game = () => {
 
   const [time, setTime] = useState(Date.now());
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  // 広告の初期値
+  const [isAdRunning, setIsAdRunning] = useState(true);
+  const [isAdNully, setisAdNully] = useState(false);
 
   const startGame = () => {
     setPlayerX(GAME_WIDTH / 2 - PLAYER_SIZE / 2);
@@ -153,6 +156,7 @@ const Game = () => {
 
         if (collision) {
           setGameOver(true);
+          setisAdNully(!isAdNully);
         } else {
           setScore(score + 1);
         }
@@ -162,19 +166,11 @@ const Game = () => {
     return () => clearInterval(gameLoop);
   }, [obstacles, playerX, playerY, gameOver, score]);
 
-  // 広告の初期値
-  const [isAdRunning, setIsAdRunning] = useState(true);
-  const [isAdNully, setisAdNully] = useState(false);
   return (
     <div>
       <h1>あかい四角をよけろ！</h1>
-
       {/* 広告生成場所 */}
-      <Generator
-        running={isAdRunning}
-        nully={isAdNully}
-      />:
-
+      <Generator running={isAdRunning} nully={isAdNully} />:
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div
           style={{
@@ -215,8 +211,7 @@ const Game = () => {
       {/* 広告消去(このボタン消して良いよ) */}
       <Button
         onClick={() => {
-          setisAdNully(!isAdNully)
-
+          setisAdNully(!isAdNully);
         }}
       >
         {`nully→${isAdNully}`}
@@ -224,7 +219,7 @@ const Game = () => {
       {/* 広告生成停止(このボタン消して良いよ．) */}
       <Button
         onClick={() => {
-          setIsAdRunning(!isAdRunning)
+          setIsAdRunning(!isAdRunning);
         }}
       >
         {`running→${isAdRunning}`}
