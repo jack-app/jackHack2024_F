@@ -58,11 +58,15 @@ export type tGenerator = {
 const Generator: React.FC<tGenerator> = (props) => {
 
 
-  const lsAd = (strType: string): [string[]] => {
+  const lsAd = (strType: string): string[][] => {
     switch (strType) {
       case "ad":
         return [
-          [`${process.env.PUBLIC_URL}/${strType}/neko.png`, "https://"],
+          [`${process.env.PUBLIC_URL}/${strType}/YP.jpg`, "https://m.youtube.com/premium?gl=JP&hl=ja"],
+          [`${process.env.PUBLIC_URL}/${strType}/hero.jpg`, "https://www.hero-wars.com/?hl=ja"],
+          [`${process.env.PUBLIC_URL}/${strType}/eyes.png`, "https://www.kose.co.jp/kose/"],
+          [`${process.env.PUBLIC_URL}/${strType}/trap.png`, "https://www.nagoya-u.ac.jp/"],
+          
         ]
         break;
       case "jack":
