@@ -45,8 +45,23 @@ const Home = () => {
       </div>
       <Button
         component={Link}
-        to={`/stage?${link(50, 15, 50, 5, 100, 100, 0, "kikikan").toString()}`}>
+        to={`/stage?${link(50, 15, 50, 5, 100, 100, 0, "normal").toString()}`}>
         Normal
+      </Button>
+      <Button
+        component={Link}
+        to={`/stage?${link(50, 15, 50, 5, 100, 100, 0, "ad").toString()}`}>
+        Ad
+      </Button>
+      <Button
+        component={Link}
+        to={`/stage?${link(50, 15, 50, 5, 100, 100, 0, "jack").toString()}`}>
+        jack
+      </Button>
+      <Button
+        component={Link}
+        to={`/stage?${link(50, 15, 50, 5, 100, 100, 0, "kikikan").toString()}`}>
+        危機感
       </Button>
     </>
   );
