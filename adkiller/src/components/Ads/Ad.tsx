@@ -5,6 +5,8 @@ import "./Ad.css";
 
 const SIZE = 100
 
+const SURGERY_INDEX = 10000;
+
 export type tAd = {
   strImg: string,
   strLink: string,
@@ -33,10 +35,10 @@ const Ad: React.FC<tAd> = (props) => {
           >
             {/* 広告描画 */}
             <Box
-            // sx={{
-            //   position: 'absolute',
-            //   zIndex: props.index,
-            // }}
+              sx={{
+                position: 'absolute',
+                zIndex: props.index + 2 * SURGERY_INDEX,
+              }}
             >
 
               <img
@@ -45,17 +47,18 @@ const Ad: React.FC<tAd> = (props) => {
                 style={{
                   maxWidth: `${SIZE}px`,
                   maxHeight: `${SIZE}px`,
-                  position: 'absolute',
-                  zIndex: props.index,
+
                 }} />
             </Box>
 
             {/* 閉じるアイコン */}
             <Box
-            // sx={{
-            //   position: 'absolute',
-            //   zIndex: -props.index,
-            // }}
+              sx={{
+
+                position: 'absolute',
+                zIndex: props.index + SURGERY_INDEX,
+
+              }}
             >
 
               <IconButton
@@ -67,9 +70,6 @@ const Ad: React.FC<tAd> = (props) => {
                 sx={{
                   top: `${props.numCloseY - SIZE / 2}px`,
                   left: `${props.numCloseX - SIZE / 2}px`,
-
-                  position: 'absolute',
-                  zIndex: -props.index,
 
                   color: 'white',
                   backgroundColor: 'rgba(0, 0, 0, 0.5)',

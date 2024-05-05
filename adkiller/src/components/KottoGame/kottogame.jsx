@@ -172,6 +172,10 @@ const Game = () => {
       <h1>あかい四角をよけろ！</h1>
 
       {/* 広告生成場所 */}
+      <div
+        style={{ zIndex: 0 }}>
+
+      </div>
       <Generator
         running={isAdRunning}
         nully={isAdNully}
@@ -184,11 +188,11 @@ const Game = () => {
           0.3
         ]}
         listStartY={[
-          // 0,
-          // 0.25,
+          0,
+          0.25,
           0.5,
-          // 0.75,
-          // 1,
+          0.75,
+          1,
         ]}
 
 
@@ -196,7 +200,12 @@ const Game = () => {
 
       />
 
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div style={{
+        display: "flex",
+        justifyContent: "center",
+        position: 'absolute',
+        zIndex: -99999
+      }}>
         <div
           style={{
             width: GAME_WIDTH,
