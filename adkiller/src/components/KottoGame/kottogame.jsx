@@ -9,9 +9,11 @@ const PLAYER_SIZE = 50;
 const OBSTACLE_SIZE = 50;
 const OBSTACLE_SPEED = 5;
 const OBSTACLE_SPAWN_RATE = 1000; // 障害物の出現間隔(ミリ秒)
+const ArrowKeyOK = true;
 
 
 const Game = () => {
+  <img src="bakudan.png" alt="Player" />
   const [playerX, setPlayerX] = useState(GAME_WIDTH / 2 - PLAYER_SIZE / 2);
   const [playerY, setPlayerY] = useState(GAME_HEIGHT - PLAYER_SIZE);
   const [obstacles, setObstacles] = useState([]);
@@ -31,7 +33,7 @@ const Game = () => {
 
   const movePlayer = useCallback(
     (event) => {
-      if (!gameOver) {
+      if (!gameOver && ArrowKeyOK) {
         if (event.key === "ArrowLeft" && playerX > 0) {
           setPlayerX(playerX - 50);
         } else if (
