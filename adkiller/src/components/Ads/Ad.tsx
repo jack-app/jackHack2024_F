@@ -11,8 +11,9 @@ export type tAd = {
   numCloseX: number,
   numCloseY: number,
   strClass: string,
-  numStartX:number,
-  numStartY:number, 
+  numStartX: number,
+  numStartY: number,
+  index: number,
 }
 
 const Ad: React.FC<tAd> = (props) => {
@@ -26,16 +27,16 @@ const Ad: React.FC<tAd> = (props) => {
         (
           <Box className={`${props.strClass}`} display="flex" justifyContent="center" alignItems="center" position="relative"
             sx={{
-              top: window.innerHeight*props.numStartY,
-              left: window.innerWidth*props.numStartX
+              top: window.innerHeight * props.numStartY,
+              left: window.innerWidth * props.numStartX
             }}
           >
             {/* 広告描画 */}
             <Box
-              sx={{
-                position: 'absolute',
-                zIndex: 1,
-              }}
+            // sx={{
+            //   position: 'absolute',
+            //   zIndex: props.index,
+            // }}
             >
 
               <img
@@ -43,30 +44,33 @@ const Ad: React.FC<tAd> = (props) => {
                 onClick={() => { window.open(props.strLink, '_blank'); }}
                 style={{
                   maxWidth: `${SIZE}px`,
-                  maxHeight: `${SIZE}px`
+                  maxHeight: `${SIZE}px`,
+                  position: 'absolute',
+                  zIndex: props.index,
                 }} />
             </Box>
 
             {/* 閉じるアイコン */}
             <Box
-              sx={{
-                position: 'absolute',
-                zIndex: -1
-                // top: `${-SIZE}px`,
-              }}
+            // sx={{
+            //   position: 'absolute',
+            //   zIndex: -props.index,
+            // }}
             >
 
               <IconButton
                 aria-label="Close"
-                onClick={() => { setIsShow(false) }}
+                onClick={() => {
+                  console.log("close")
+                  setIsShow(false)
+                }}
                 sx={{
-                  // position: 'absolute',
                   top: `${props.numCloseY - SIZE / 2}px`,
                   left: `${props.numCloseX - SIZE / 2}px`,
-                  // top: `${SIZE}px`,
-                  // left: `${SIZE}px`,
-                  // top: "0px",
-                  // left: "0px",
+
+                  position: 'absolute',
+                  zIndex: -props.index,
+
                   color: 'white',
                   backgroundColor: 'rgba(0, 0, 0, 0.5)',
                   '&:hover': {

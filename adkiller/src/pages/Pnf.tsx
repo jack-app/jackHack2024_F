@@ -1,3 +1,4 @@
+import Generator from "../components/Ads/Generator";
 
 const Pnf = () => {
   return (
@@ -5,6 +6,9 @@ const Pnf = () => {
       <h1>
         Pnf
       </h1>
+      {/* <Generator 
+      false
+      /> */}
     </>
   );
 };

@@ -175,11 +175,11 @@ const Game = () => {
       <Generator
         running={isAdRunning}
         nully={isAdNully}
-        interval={1000}
+        interval={100}
         listStartX={[
           -0.3,
-          -0.15, 
-          0, 
+          -0.15,
+          0,
           0.15,
           0.3
         ]}
@@ -190,11 +190,11 @@ const Game = () => {
           // 0.75,
           // 1,
         ]}
-      
 
-        
 
-      />:
+
+
+      />
 
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div
