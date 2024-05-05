@@ -13,8 +13,9 @@ const ArrowKeyOK = true;
 const PlayerSpeed_Key = 50;
 const PlayerSpeed_Mouse = 15;
 
+
 const Game = () => {
-  <img src="bakudan.png" alt="Player" />
+ 
   const [playerX, setPlayerX] = useState(GAME_WIDTH / 2 - PLAYER_SIZE / 2);
   const [playerY, setPlayerY] = useState(GAME_HEIGHT - PLAYER_SIZE);
   const [obstacles, setObstacles] = useState([]);
@@ -24,6 +25,8 @@ const Game = () => {
   const [time, setTime] = useState(Date.now());
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
+
+
   const startGame = () => {
     setPlayerX(GAME_WIDTH / 2 - PLAYER_SIZE / 2);
     setPlayerY(GAME_HEIGHT - PLAYER_SIZE);
@@ -31,6 +34,8 @@ const Game = () => {
     setGameOver(false);
     setScore(0);
   };
+
+  
 
   const movePlayer = useCallback(
     (event) => {
@@ -168,6 +173,7 @@ const Game = () => {
   // 広告の初期値
   const [isAdRunning, setIsAdRunning] = useState(true);
   const [isAdNully, setisAdNully] = useState(false);
+
   return (
     <div>
       <h1>あかい四角をよけろ！</h1>
@@ -179,6 +185,16 @@ const Game = () => {
       />:
 
       <div style={{ display: "flex", justifyContent: "center" }}>
+        {/* 縦の黒線 */}
+        <div
+          style={{
+            position: "absolute",
+            top: "0",
+            bottom: "0",
+            left: "50%",
+            borderLeft: "1px solid black",
+          }}
+        />
         <div
           style={{
             width: GAME_WIDTH,
@@ -218,8 +234,7 @@ const Game = () => {
       {/* 広告消去(このボタン消して良いよ) */}
       <Button
         onClick={() => {
-          setisAdNully(!isAdNully)
-
+          setisAdNully(!isAdNully);
         }}
       >
         {`nully→${isAdNully}`}
@@ -227,13 +242,19 @@ const Game = () => {
       {/* 広告生成停止(このボタン消して良いよ．) */}
       <Button
         onClick={() => {
-          setIsAdRunning(!isAdRunning)
+          setIsAdRunning(!isAdRunning);
         }}
       >
         {`running→${isAdRunning}`}
       </Button>
     </div>
   );
+
+  
 };
 
+
+
 export default Game;
+
+
