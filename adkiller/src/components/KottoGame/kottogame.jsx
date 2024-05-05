@@ -2,21 +2,29 @@ import React, { useState, useEffect, useCallback, useContext } from "react";
 import Generator from "../Ads/Generator";
 import { Box, Button } from "@mui/material";
 import { adContext } from "../../App";
+import { useLocation } from "react-router-dom";
 
-const GAME_WIDTH = 800;
-const GAME_HEIGHT = 600;
-const PLAYER_SIZE = 50;
-const OBSTACLE_SIZE = 50;
-const OBSTACLE_SPEED = 5;
-const OBSTACLE_SPAWN_RATE = 1000; // 障害物の出現間隔(ミリ秒)
-const ArrowKeyOK = true;
+const GAME_WIDTH = window.innerWidth * 0.8;
+const GAME_HEIGHT = window.innerHeight * 0.8;
+
 const PlayerSpeed_Key = 50;
-const PlayerSpeed_Mouse = 15;
-const GameClearTime = 10;
 
 
 
 const Game = () => {
+
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+
+
+  const PLAYER_SIZE = Number(queryParams.get("meSize")) ?? 50;
+  const OBSTACLE_SIZE = Number(queryParams.get("obSize")) ?? 50;
+  const OBSTACLE_SPEED = Number(queryParams.get("obSpeed")) ?? 5;
+  const OBSTACLE_SPAWN_RATE = Number(queryParams.get("obRate")) ?? 1000;
+  const ArrowKeyOK = (Number(queryParams.get("arrow")) === 1);
+  const PlayerSpeed_Mouse = Number(queryParams.get("meSpeed")) ?? 15;
+  const GameClearTime = Number(queryParams.get("time")) ?? 10;
+  const gameType = queryParams.get("type") ?? "UNAGI";
 
   const [playerX, setPlayerX] = useState(GAME_WIDTH / 2 - PLAYER_SIZE / 2);
   const [playerY, setPlayerY] = useState(GAME_HEIGHT - PLAYER_SIZE);
@@ -218,12 +226,9 @@ const Game = () => {
 
   return (
     <>
-
-      <div>
-        <h1>あかい四角をよけろ！</h1>
-        {/* 広告生成場所 */}
-
-      </div>
+      <Box>
+        任意のタイトル
+      </Box>
       <Generator
         running={isAdRunning}
         nully={isAdNully}
@@ -242,6 +247,7 @@ const Game = () => {
           0.75,
           1,
         ]}
+        strType={gameType}
       />
 
       <div style={{
@@ -250,8 +256,6 @@ const Game = () => {
         position: 'absolute',
         zIndex: -99999
       }}>
-
-        <p>Elapsed Time: {elapsedTime} seconds</p>
 
 
 
@@ -298,26 +302,31 @@ const Game = () => {
           ))}
         </div>
       </div>
-      <p>Score: {score}</p>
+
+      {!(gameOver || gameClear) && <>
+        <p>Elapsed Time: {elapsedTime} seconds</p>
+        <p>Time Left: {GameClearTime - elapsedTime} seconds</p>
+      </>}
+
+      {/* <p>Score: {score}</p> */}
       {gameOver && <p>Game Over</p>}
       {gameClear && <p>Game Clear</p>}
-      <button onClick={startGame}>Start Game</button>
-      {/* 広告消去(このボタン消して良いよ) */}
-      <Button
+      {/* <button onClick={startGame}>Start Game</button> */}
+      {/* (これらのボタン消して良いよ) */}
+      {/* <Button
         onClick={() => {
           setisAdNully(!isAdNully);
         }}
       >
         {`nully→${isAdNully}`}
       </Button>
-      {/* 広告生成停止(このボタン消して良いよ．) */}
       <Button
         onClick={() => {
           setIsAdRunning(!isAdRunning);
         }}
       >
         {`running→${isAdRunning}`}
-      </Button>
+      </Button> */}
 
 
 

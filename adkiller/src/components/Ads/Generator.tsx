@@ -17,16 +17,16 @@ function getRandomEle<T>(arr: T[]) {
   return arr[randomIndex];
 }
 
-const lsStrImg = [
-  `${process.env.PUBLIC_URL}/neko.png`,
-  `${process.env.PUBLIC_URL}/logo512.png`,
-  `${process.env.PUBLIC_URL}/furya.png`,
-];
+// const lsStrImg = [
+//   `${process.env.PUBLIC_URL}/neko.png`,
+//   `${process.env.PUBLIC_URL}/logo512.png`,
+//   `${process.env.PUBLIC_URL}/furya.png`,
+// ];
 
-const lsStrLink = [
-  "https://flobal.jp/160.html",
-  "https://mattsun-kun-portfolio.vercel.app/",
-];
+// const lsStrLink = [
+//   "https://flobal.jp/160.html",
+//   "https://mattsun-kun-portfolio.vercel.app/",
+// ];
 
 const lsNumClose = [
   0,
@@ -51,11 +51,38 @@ export type tGenerator = {
   interval: number,
   listStartX: number[],
   listStartY: number[],
+  strType: string,
 }
 
 // 広告生成
 const Generator: React.FC<tGenerator> = (props) => {
 
+
+  const lsAd = (strType: string): [string[]] => {
+    switch (strType) {
+      case "ad":
+        return [
+          [`${process.env.PUBLIC_URL}/${strType}/neko.png`, "https://"],
+        ]
+        break;
+      case "jack":
+        return [
+          [`${process.env.PUBLIC_URL}/${strType}/neko.png`, "https://"],
+        ]
+        break;
+      case "kikikan":
+        return [
+          [`${process.env.PUBLIC_URL}/${strType}/neko.png`, "https://"],
+        ]
+        break;
+      default:
+        console.log("ない")
+        console.log(strType)
+        return [[]]
+        break;
+    }
+
+  }
   // 広告を保持する配列．
   const [ads, setAds] = useState<tAd[]>([]);
 
@@ -69,10 +96,11 @@ const Generator: React.FC<tGenerator> = (props) => {
       }
       // 動作中
       if (props.running && !props.nully) {
+        const adsRand = getRandomEle(lsAd(props.strType));
         // 新しい広告の生成
         const newAd: tAd = {
-          strImg: getRandomEle(lsStrImg) ?? "ERROR_IMG",
-          strLink: getRandomEle(lsStrLink) ?? "ERROR_LINK",
+          strImg: adsRand?.[0] ?? "ERROR_IMG",
+          strLink: adsRand?.[1] ?? "ERROR_LINK",
           numCloseX: getRandomEle(lsNumClose) ?? -1,
           numCloseY: getRandomEle(lsNumClose) ?? -1,
           strClass: getRandomEle(lsStrClass) ?? "ERROR_CLASS",
