@@ -12,6 +12,7 @@ const OBSTACLE_SPAWN_RATE = 1000; // 障害物の出現間隔(ミリ秒)
 const ArrowKeyOK = true;
 const PlayerSpeed_Key = 50;
 const PlayerSpeed_Mouse = 15;
+const GameClearTime = 10;
 
 const Game = () => {
 
@@ -19,6 +20,7 @@ const Game = () => {
   const [playerY, setPlayerY] = useState(GAME_HEIGHT - PLAYER_SIZE);
   const [obstacles, setObstacles] = useState([]);
   const [gameOver, setGameOver] = useState(false);
+  const [gameClear, setGameClear] = useState(false);
   const [score, setScore] = useState(0);
 
   const [time, setTime] = useState(Date.now());
@@ -27,6 +29,7 @@ const Game = () => {
   // 広告の初期値
   const [isAdRunning, setIsAdRunning] = useState(true);
   const [isAdNully, setisAdNully] = useState(false);
+  const [elapsedTime, setElapsedTime] = useState(0); // 追加
 
   const startGame = () => {
     setPlayerX(GAME_WIDTH / 2 - PLAYER_SIZE / 2);
@@ -34,12 +37,47 @@ const Game = () => {
     setObstacles([]);
     setGameOver(false);
     setScore(0);
+    setTime(Date.now());
+    setElapsedTime(0); 
+    setGameClear(false);
   };
+
+  const getElapsedTime = () => {
+    const currentTime = Date.now();
+    const elapsedSeconds = Math.floor((currentTime - time) / 1000);
+    if (!gameOver)  {
+      if (elapsedSeconds >= GameClearTime) {
+        setGameClear(true); // ゲームクリア
+        setisAdNully(true);
+        setIsAdRunning(false);
+      }
+      
+      //return Math.floor((currentTime - time) / 1000);
+      return elapsedSeconds;
+    } else {
+      return elapsedTime; // ゲームが終了したら経過時間を固定
+    }
+  };
+
+  useEffect(() => {
+    console.log("gameClear:", gameClear);
+    const interval = setInterval(() => {
+      setElapsedTime(getElapsedTime());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [gameOver, gameClear]); 
+
+
+
+  
 
 
 
   const movePlayer = useCallback(
     (event) => {
+      if (gameClear) return;
+
       if (!gameOver && ArrowKeyOK) {
         if (event.key === "ArrowLeft" && playerX > 0) {
           setPlayerX(playerX - PlayerSpeed_Key);
@@ -62,6 +100,8 @@ const Game = () => {
   );
 
   const handleClick = (event) => {
+    if (gameClear) return;
+
     if (!gameOver) {
       const isLeftClick = event.clientX < window.innerWidth / 2;
       const moveDistance = OBSTACLE_SPEED * PlayerSpeed_Mouse;
@@ -109,6 +149,8 @@ const Game = () => {
 
   useEffect(() => {
     const gameLoop = setInterval(() => {
+      if (gameClear) return;
+      
       if (!gameOver) {
         // 障害物の位置を更新
         setObstacles((prevObstacles) =>
@@ -178,6 +220,11 @@ const Game = () => {
       {/* 広告生成場所 */}
       <Generator running={isAdRunning} nully={isAdNully} />:
       <div style={{ display: "flex", justifyContent: "center" }}>
+
+      <p>Elapsed Time: {elapsedTime} seconds</p>
+
+    
+  
         {/* 縦の黒線 */}
         <div
           style={{
@@ -223,6 +270,7 @@ const Game = () => {
       </div>
       <p>Score: {score}</p>
       {gameOver && <p>Game Over</p>}
+      {gameClear && <p>Game Clear</p>}
       <button onClick={startGame}>Start Game</button>
       {/* 広告消去(このボタン消して良いよ) */}
       <Button
@@ -240,6 +288,9 @@ const Game = () => {
       >
         {`running→${isAdRunning}`}
       </Button>
+
+      
+
     </div>
   );
 
