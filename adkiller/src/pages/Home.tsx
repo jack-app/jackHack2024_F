@@ -50,7 +50,7 @@ const Home = () => {
       </Button> */}
       <Button
         component={Link}
-        to={`/stage?${link(50, 15, 50, 5, 100, 100, 0, "ad").toString()}`}>
+        to={`/stage?${link(50, 15, 50, 5, 1000, 100, 0, "ad").toString()}`}>    
         Ad
       </Button>
       <Button
