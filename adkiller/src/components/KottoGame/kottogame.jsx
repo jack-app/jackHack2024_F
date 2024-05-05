@@ -13,9 +13,8 @@ const ArrowKeyOK = true;
 const PlayerSpeed_Key = 50;
 const PlayerSpeed_Mouse = 15;
 
-
 const Game = () => {
- 
+
   const [playerX, setPlayerX] = useState(GAME_WIDTH / 2 - PLAYER_SIZE / 2);
   const [playerY, setPlayerY] = useState(GAME_HEIGHT - PLAYER_SIZE);
   const [obstacles, setObstacles] = useState([]);
@@ -25,7 +24,9 @@ const Game = () => {
   const [time, setTime] = useState(Date.now());
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-
+  // 広告の初期値
+  const [isAdRunning, setIsAdRunning] = useState(true);
+  const [isAdNully, setisAdNully] = useState(false);
 
   const startGame = () => {
     setPlayerX(GAME_WIDTH / 2 - PLAYER_SIZE / 2);
@@ -35,7 +36,7 @@ const Game = () => {
     setScore(0);
   };
 
-  
+
 
   const movePlayer = useCallback(
     (event) => {
@@ -161,6 +162,7 @@ const Game = () => {
 
         if (collision) {
           setGameOver(true);
+          setisAdNully(!isAdNully);
         } else {
           setScore(score + 1);
         }
@@ -170,20 +172,11 @@ const Game = () => {
     return () => clearInterval(gameLoop);
   }, [obstacles, playerX, playerY, gameOver, score]);
 
-  // 広告の初期値
-  const [isAdRunning, setIsAdRunning] = useState(true);
-  const [isAdNully, setisAdNully] = useState(false);
-
   return (
     <div>
       <h1>あかい四角をよけろ！</h1>
-
       {/* 広告生成場所 */}
-      <Generator
-        running={isAdRunning}
-        nully={isAdNully}
-      />:
-
+      <Generator running={isAdRunning} nully={isAdNully} />:
       <div style={{ display: "flex", justifyContent: "center" }}>
         {/* 縦の黒線 */}
         <div
@@ -250,7 +243,7 @@ const Game = () => {
     </div>
   );
 
-  
+
 };
 
 
