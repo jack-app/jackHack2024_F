@@ -1,0 +1,39 @@
+.Wrapper {
+  background: linear-gradient(0deg, #365486 0%, #0f1035 50%, #365486 100%);
+}
+
+.GameTitleWrapper {
+  position: absolute; /* 位置指定 */
+  padding: 20px; /* 余白指定 */
+  top: 0; /* 位置指定 */
+  bottom: 40%; /* 位置指定 */
+  left: 0; /* 位置指定 */
+  right: 0; /* 位置指定 */
+  margin: auto; /* 中央寄せ */
+  width: 500px; /* 幅指定 */
+  height: 80px; /* 高さ指定 */
+}
+
+.GameTitle {
+  color: white;
+  font-family: "Times New Roman";
+  font-size: 50px;
+  text-align: center;
+  margin: 0;
+}
+
+.GameStart {
+  color: black;
+  background-color: white;
+  font-weight: bold;
+  font-size: 30px;
+  position: absolute; /* 位置指定 */
+  padding: 20px; /* 余白指定 */
+  top: 0; /* 位置指定 */
+  bottom: 0; /* 位置指定 */
+  left: 0; /* 位置指定 */
+  right: 0; /* 位置指定 */
+  margin: auto; /* 中央寄せ */
+  width: 500px; /* 幅指定 */
+  height: 80px; /* 高さ指定 */
+}

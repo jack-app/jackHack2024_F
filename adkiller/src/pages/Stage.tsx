@@ -7,10 +7,8 @@ import Ad from "../components/Ads/Ad";
 const Stage = () => {
   return (
     <>
-
       {/* ゲーム生成 */}
       <Game />
-
     </>
   );
 };
