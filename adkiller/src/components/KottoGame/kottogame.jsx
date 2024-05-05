@@ -173,6 +173,8 @@ const Game = () => {
       <Generator
         running={isAdRunning}
         nully={isAdNully}
+        interval={100}
+
       />:
 
       <div style={{ display: "flex", justifyContent: "center" }}>

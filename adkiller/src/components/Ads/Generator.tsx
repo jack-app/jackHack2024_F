@@ -6,9 +6,6 @@ import { adContext, tBooleanSet2 } from '../../App';
 // ADのランダム生成
 
 
-// インターバルの指定
-const AD_INTERVAL = 1000
-
 // ランダムなものを返す．
 function getRandomEle<T>(arr: T[]) {
   if (arr.length === 0) {
@@ -65,6 +62,7 @@ const lsStrClass = [
 export type tGenerator = {
   nully: boolean,
   running: boolean,
+  interval: number,
 }
 
 // 広告生成
@@ -72,20 +70,17 @@ const Generator: React.FC<tGenerator> = (props) => {
 
   // 広告を保持する配列．
   const [ads, setAds] = useState<tAd[]>([]);
-  // const { valNull, setValNull, valRun, setValRun } = (useContext(adContext) || {}) as tBooleanSet2;
-  const { nully, running } = props
-  // console.log(props)
 
   // インターバルごとに実行される場所．
   useEffect(() => {
 
     const interval = setInterval(() => {
       // 全消し
-      if (nully) {
+      if (props.nully) {
         setAds([]);
       }
       // 動作中
-      if (running && !nully) {
+      if (props.running && !props.nully) {
         // 新しい広告の生成
         const newAd: tAd = {
           strImg: getRandomEle(lsStrImg) ?? "ERROR_IMG",
@@ -102,10 +97,10 @@ const Generator: React.FC<tGenerator> = (props) => {
         setAds((ads) => [...ads, newAd]);
       }
 
-    }, AD_INTERVAL);
+    }, props.interval);
 
     return () => clearInterval(interval); // クリーンアップ
-  }, [nully, running]);
+  }, [props.nully, props.running]);
 
   return (
     <>
