@@ -28,10 +28,22 @@ const App: React.FC = () => {
   }
   return (
     <>
+      <img src={`${process.env.PUBLIC_URL}/background.png`} style={{
+        zIndex: -9999999999,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        height: window.innerHeight,
+        width: window.innerWidth,
+        position: "absolute",
+        top: 0,
+        left: 0,
+      }} />
       <BrowserRouter>
         <adContext.Provider value={ad} >
 
           <Container className="main-content" sx={{ marginTop: "9vh", marginBottom: "9vh" }}>
+
             <Routes>
               <Route path={"/"} element={<Home />} />
               <Route path={"/stage"} element={<Stage />} />

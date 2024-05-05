@@ -226,6 +226,16 @@ const Game = () => {
 
   return (
     <>
+
+      <img src={`${process.env.PUBLIC_URL}/main/${gameType}/back.png`} style={{
+
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        height: GAME_HEIGHT,
+        width: GAME_WIDTH,
+        position: "absolute",
+      }} />
       <Box>
         任意のタイトル
       </Box>
@@ -277,7 +287,7 @@ const Game = () => {
             position: "relative",
           }}
         >
-          <div
+          {/* <div
             style={{
               width: PLAYER_SIZE,
               height: PLAYER_SIZE,
@@ -286,18 +296,43 @@ const Game = () => {
               left: playerX,
               bottom: playerY,
             }}
+          /> */}
+          <img
+            // key={index}
+            src={`${process.env.PUBLIC_URL}/main/${gameType}/me.png`} // 画像のパスを指定
+            style={{
+              width: PLAYER_SIZE,
+              height: PLAYER_SIZE,
+              position: "absolute",
+              left: playerX,
+              bottom: playerY,
+            }}
+            alt="Me" // 代替テキスト
           />
+
           {obstacles.map((obstacle, index) => (
-            <div
+            // <div
+            //   key={index}
+            //   style={{
+            //     width: OBSTACLE_SIZE,
+            //     height: OBSTACLE_SIZE,
+            //     backgroundColor: "red",
+            //     position: "absolute",
+            //     left: obstacle.x,
+            //     bottom: obstacle.y,
+            //   }}
+            // />
+            <img
               key={index}
+              src={`${process.env.PUBLIC_URL}/main/${gameType}/op.png`} // 画像のパスを指定
               style={{
                 width: OBSTACLE_SIZE,
                 height: OBSTACLE_SIZE,
-                backgroundColor: "red",
                 position: "absolute",
                 left: obstacle.x,
                 bottom: obstacle.y,
               }}
+              alt="Obstacle" // 代替テキスト
             />
           ))}
         </div>

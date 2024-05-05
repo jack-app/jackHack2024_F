@@ -9,6 +9,17 @@ const Pnf = () => {
       {/* <Generator 
       false
       /> */}
+      {/* <img style={{
+        backgroundImage: `${process.env.PUBLIC_URL}/main/kikikan/back.png`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        height: window.innerHeight,
+        width: window.innerWidth,
+        position: "absolute",
+        left: 0,
+        top: 0,
+      }} /> */}
     </>
   );
 };

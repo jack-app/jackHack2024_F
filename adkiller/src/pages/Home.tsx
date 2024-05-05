@@ -39,15 +39,15 @@ const Home = () => {
       >
         <h1>THIS KOUKOKU</h1>
         <h1>NANNKA HENN</h1>
-        <Button component={Link} to={"/stage"}>
+        {/* <Button component={Link} to={"/stage"}>
           GAME START
-        </Button>
+        </Button> */}
       </div>
-      <Button
+      {/* <Button
         component={Link}
         to={`/stage?${link(50, 15, 50, 5, 100, 100, 0, "normal").toString()}`}>
         Normal
-      </Button>
+      </Button> */}
       <Button
         component={Link}
         to={`/stage?${link(50, 15, 50, 5, 100, 100, 0, "ad").toString()}`}>
