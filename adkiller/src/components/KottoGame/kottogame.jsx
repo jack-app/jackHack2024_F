@@ -10,7 +10,8 @@ const OBSTACLE_SIZE = 50;
 const OBSTACLE_SPEED = 5;
 const OBSTACLE_SPAWN_RATE = 1000; // 障害物の出現間隔(ミリ秒)
 const ArrowKeyOK = true;
-
+const PlayerSpeed_Key = 50;
+const PlayerSpeed_Mouse = 15;
 
 const Game = () => {
   <img src="bakudan.png" alt="Player" />
@@ -35,19 +36,19 @@ const Game = () => {
     (event) => {
       if (!gameOver && ArrowKeyOK) {
         if (event.key === "ArrowLeft" && playerX > 0) {
-          setPlayerX(playerX - 50);
+          setPlayerX(playerX - PlayerSpeed_Key);
         } else if (
           event.key === "ArrowRight" &&
           playerX < GAME_WIDTH - PLAYER_SIZE
         ) {
-          setPlayerX(playerX + 50);
+          setPlayerX(playerX + PlayerSpeed_Key);
         } else if (event.key === "ArrowUp" && playerY > 0) {
-          setPlayerY(playerY - 50);
+          setPlayerY(playerY - PlayerSpeed_Key);
         } else if (
           event.key === "ArrowDown" &&
           playerY < GAME_HEIGHT - PLAYER_SIZE
         ) {
-          setPlayerY(playerY + 50);
+          setPlayerY(playerY + PlayerSpeed_Key);
         }
       }
     },
@@ -57,7 +58,7 @@ const Game = () => {
   const handleClick = (event) => {
     if (!gameOver) {
       const isLeftClick = event.clientX < window.innerWidth / 2;
-      const moveDistance = OBSTACLE_SPEED * 15;
+      const moveDistance = OBSTACLE_SPEED * PlayerSpeed_Mouse;
       let newPlayerX;
       if (isLeftClick) {
         newPlayerX = Math.max(0, playerX - moveDistance);
