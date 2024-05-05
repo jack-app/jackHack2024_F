@@ -66,8 +66,12 @@ const Generator: React.FC<tGenerator> = (props) => {
           [`${process.env.PUBLIC_URL}/${strType}/hero.jpg`, "https://www.hero-wars.com/?hl=ja"],
           [`${process.env.PUBLIC_URL}/${strType}/eyes.png`, "https://www.kose.co.jp/kose/"],
           [`${process.env.PUBLIC_URL}/${strType}/trap.png`, "https://www.nagoya-u.ac.jp/"],
-          
+
+          [`${process.env.PUBLIC_URL}/${strType}/neko.png`, "https://ja.wikipedia.org/wiki/ネコ"],
+          [`${process.env.PUBLIC_URL}/${strType}/rakutannrakuda.jpg`, "https://www.rakutan-rakuda.com/app/nagoya_u/"],
+          [`${process.env.PUBLIC_URL}/${strType}/apple.jpeg`, "https://www.apple.com/jp/"]
         ]
+
         break;
       case "jack":
         return [
@@ -75,7 +79,7 @@ const Generator: React.FC<tGenerator> = (props) => {
         ]
         break;
       case "kikikan":
-        
+
         return [
           [`${process.env.PUBLIC_URL}/${strType}/kikiniki.png`, "https://www.youtube.com/watch?v=0xUpkiYWFJI"],
           [`${process.env.PUBLIC_URL}/${strType}/eigokikikann.png`, "https://kuroma-akuto.com/?p=2622"]
