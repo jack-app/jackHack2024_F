@@ -229,15 +229,17 @@ const Game = () => {
   return (
     <>
 
-      <img src={`${process.env.PUBLIC_URL}/main/${gameType}/back.png`} style={{
+      <img
 
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        height: GAME_HEIGHT,
-        width: GAME_WIDTH,
-        position: "absolute",
-      }} />
+        src={`${process.env.PUBLIC_URL}/main/${gameType}/back.png`} style={{
+          zIndex: -99999999,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          height: GAME_HEIGHT,
+          width: GAME_WIDTH,
+          position: "absolute",
+        }} />
       <Box>
         <Typography
           color="white"
