@@ -48,7 +48,7 @@ const Home = () => {
         <Button
           variant="contained" // ボタンの見た目を変更
           component={Link}
-          to={`/stage?${link(50, 15, 50, 5, 100, 100, 100, 0, "ad").toString()}`}
+          to={`/stage?${link(30, 5, 30, 3.5, 700, 1000, 15, 0, "ad").toString()}`}
           sx={{ fontSize: "2rem", backgroundColor: "red", color: "white", textAlign: "center" }} // 赤色に設定
         >
           ノーマルモード
@@ -57,7 +57,7 @@ const Home = () => {
         <Button
           variant="contained" // ボタンの見た目を変更
           component={Link}
-          to={`/stage?${link(50, 15, 50, 5, 100, 100, 100, 0, "jack").toString()}`}
+          to={`/stage?${link(30, 5, 30, 4.5, 650, 1000, 30, 0, "kikikan").toString()}`}
           sx={{ fontSize: "2rem", backgroundColor: "red", color: "white", textAlign: "center" }} // 赤色に設定
         >
           危機感モード
@@ -65,7 +65,7 @@ const Home = () => {
         <Button
           variant="contained" // ボタンの見た目を変更
           component={Link}
-          to={`/stage?${link(50, 15, 50, 5, 100, 100, 100, 0, "kikikan").toString()}`}
+          to={`/stage?${link(30, 5, 30, 7, 400, 500, 60, 0, "jack").toString()}`}
           sx={{ fontSize: "2rem", backgroundColor: "red", color: "white", textAlign: "center" }} // 赤色に設定
         >
           カオスモード

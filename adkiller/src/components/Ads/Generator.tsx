@@ -67,15 +67,22 @@ const Generator: React.FC<tGenerator> = (props) => {
           [`${process.env.PUBLIC_URL}/${strType}/eyes.png`, "https://www.kose.co.jp/kose/"],
           [`${process.env.PUBLIC_URL}/${strType}/trap.png`, "https://www.nagoya-u.ac.jp/"],
 
-          [`${process.env.PUBLIC_URL}/${strType}/neko.png`, "https://ja.wikipedia.org/wiki/ネコ"],
-          [`${process.env.PUBLIC_URL}/${strType}/rakutannrakuda.jpg`, "https://www.rakutan-rakuda.com/app/nagoya_u/"],
-          [`${process.env.PUBLIC_URL}/${strType}/apple.jpeg`, "https://www.apple.com/jp/"]
         ]
 
         break;
       case "jack":
         return [
-          [`${process.env.PUBLIC_URL}/${strType}/neko.png`, "https://"],
+
+          [`${process.env.PUBLIC_URL}/${strType}/neko.png`, "https://ja.wikipedia.org/wiki/ネコ"],
+          [`${process.env.PUBLIC_URL}/${strType}/rakutannrakuda.jpg`, "https://www.rakutan-rakuda.com/app/nagoya_u/"],
+          [`${process.env.PUBLIC_URL}/${strType}/apple.jpeg`, "https://www.apple.com/jp/"],
+          [`${process.env.PUBLIC_URL}/${strType}/maron.png`, "https://kisako-riku-portfolio.vercel.app/"],
+          [`${process.env.PUBLIC_URL}/${strType}/kate.png`, "https://katesawada.github.io/"],
+          [`${process.env.PUBLIC_URL}/${strType}/nako.png`, "https://nac-39.com/"],
+          [`${process.env.PUBLIC_URL}/${strType}/enpitsu.png`, "https://vps.hbenpitsu.net/portfolio/"],
+          [`${process.env.PUBLIC_URL}/${strType}/mattunnkun.png`, "https://mattsun-kun-portfolio.vercel.app/"],
+          [`${process.env.PUBLIC_URL}/${strType}/jakkunn.png`, "https://jackun-blog.vercel.app/"]
+          ,
         ]
         break;
       case "kikikan":
