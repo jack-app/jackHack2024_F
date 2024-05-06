@@ -60,7 +60,8 @@ const Game = () => {
     if (!gameOver) {
       if (elapsedSeconds >= GameClearTime) {
         setGameClear(true); // ゲームクリア
-        setisAdNully(true);
+        // mattsunkun
+        // setisAdNully(true);
         setIsAdRunning(false);
       }
 
@@ -216,7 +217,9 @@ const Game = () => {
 
         if (collision) {
           setGameOver(true);
-          setisAdNully(!isAdNully);
+          // mattsunkun
+          // setisAdNully(!isAdNully);
+          setIsAdRunning(false);
         } else {
           setScore(score + 1);
         }
@@ -241,35 +244,35 @@ const Game = () => {
           position: "absolute",
           left: window.innerWidth * 0.1,
         }} />
-      
-        
-      <Box style={{ display: "flex", justifyContent: "center" }}>
-  {(gameOver || gameClear) && (
-    <>
-      <Button
-  component={Link}
-  to="/"
-  variant="contained" // ボタンの見た目を変更
-  sx={{ fontSize: "1rem", backgroundColor: "red", color: "white", textAlign: "center" }} // 赤色に設定
->
-  ホームへ
-</Button>
-    </>
-  )}
-</Box>
 
-     
+
+      <Box style={{ display: "flex", justifyContent: "center" }}>
+        {(gameOver || gameClear) && (
+          <>
+            <Button
+              component={Link}
+              to="/"
+              variant="contained" // ボタンの見た目を変更
+              sx={{ fontSize: "1rem", backgroundColor: "red", color: "white", textAlign: "center" }} // 赤色に設定
+            >
+              ホームへ
+            </Button>
+          </>
+        )}
+      </Box>
+
+
       <Box style={{ display: "flex", justifyContent: "center", textAlign: "center" }}>
-  {!(gameOver || gameClear) ? (
-    <Typography color="white">
-      <Typography sx={{ fontSize: "1.5rem", textAlign: "center" }}>{GameClearTime - elapsedTime}</Typography>
-    </Typography>
-  ) : (
- <></>
-  )}
-  {gameOver && <Typography color="white">このゲームをクリアできないから<br />お前はモテないんだよ！</Typography>}
-  {gameClear && <Typography color="white">素晴らしい！これでお前もモテモテだ！</Typography>}
-</Box>
+        {!(gameOver || gameClear) ? (
+          <Typography color="white">
+            <Typography sx={{ fontSize: "1.5rem", textAlign: "center" }}>{GameClearTime - elapsedTime}</Typography>
+          </Typography>
+        ) : (
+          <></>
+        )}
+        {gameOver && <Typography color="white">このゲームをクリアできないから<br />お前はモテないんだよ！</Typography>}
+        {gameClear && <Typography color="white">素晴らしい！これでお前もモテモテだ！</Typography>}
+      </Box>
       <Generator
         running={isAdRunning}
         nully={isAdNully}
