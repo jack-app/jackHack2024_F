@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { useLocation } from "react-router-dom";
-
-
 
 const Home = () => {
 
@@ -30,40 +28,52 @@ const Home = () => {
     return queryParams;
   }
   return (
-    <>
-      <div
-        style={{
-          backgroundImage: `${process.env.PUBLIC_URL}/home.png`,
-          width: window.innerWidth
-        }}
-      >
-        <h1>THIS KOUKOKU</h1>
-        <h1>NANNKA HENN</h1>
-        {/* <Button component={Link} to={"/stage"}>
-          GAME START
-        </Button> */}
+    <div
+      style={{
+        backgroundImage: `${process.env.PUBLIC_URL}/home.png`,
+        width: "100%", // 幅を100%に設定
+        display: "flex",
+        justifyContent: "center", // 水平方向の中央寄せ
+        alignItems: "center", // 垂直方向の中央寄せ
+        flexDirection: "column", // 子要素を縦に配置
+      }}
+    >
+      <Typography color="white" variant="h2" align="center" sx={{ textAlign: "center" }}> {/* textAlign: "center" を追加 */}
+        ADKILLER
+      </Typography>
+      <div style={{ height: "100px" }} />
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "10px" }}> {/* 各ボタン間の間隔を設定 */}
+        <Button
+          variant="contained" // ボタンの見た目を変更
+          component={Link}
+          to={`/stage?${link(50, 15, 50, 5, 100, 100, 0, "ad").toString()}`}
+          sx={{ fontSize: "2rem", backgroundColor: "red", color: "white", textAlign: "center" }} // 赤色に設定
+        >
+          ノーマルモード
+        </Button>
+        
+        <Button
+          variant="contained" // ボタンの見た目を変更
+          component={Link}
+          to={`/stage?${link(50, 15, 50, 5, 100, 100, 0, "jack").toString()}`}
+          sx={{ fontSize: "2rem", backgroundColor: "red", color: "white", textAlign: "center" }} // 赤色に設定
+        >
+          危機感モード
+        </Button>
+        <Button
+          variant="contained" // ボタンの見た目を変更
+          component={Link}
+          to={`/stage?${link(50, 15, 50, 5, 100, 100, 0, "kikikan").toString()}`}
+          sx={{ fontSize: "2rem", backgroundColor: "red", color: "white", textAlign: "center" }} // 赤色に設定
+        >
+          カオスモード
+        </Button>
+        <div style={{ height: "20px" }} />
+        <Typography color="white" sx={{ fontSize: "1.2rem", color: "white", textAlign: "center" }}>
+          このゲームクリアできない男、ガチで危機感持ったほうがいいと思う。
+        </Typography>
       </div>
-      {/* <Button
-        component={Link}
-        to={`/stage?${link(50, 15, 50, 5, 100, 100, 0, "normal").toString()}`}>
-        Normal
-      </Button> */}
-      <Button
-        component={Link}
-        to={`/stage?${link(50, 15, 50, 5, 100, 100, 0, "ad").toString()}`}>
-        Ad
-      </Button>
-      <Button
-        component={Link}
-        to={`/stage?${link(50, 15, 50, 5, 100, 100, 0, "jack").toString()}`}>
-        jack
-      </Button>
-      <Button
-        component={Link}
-        to={`/stage?${link(50, 15, 50, 5, 100, 100, 0, "kikikan").toString()}`}>
-        危機感
-      </Button>
-    </>
+    </div>
   );
 };
 
