@@ -242,7 +242,7 @@ const Game = () => {
       <Generator
         running={isAdRunning}
         nully={isAdNully}
-        interval={100}
+        interval={2000}
         listStartX={[
           -0.3,
           -0.15,
