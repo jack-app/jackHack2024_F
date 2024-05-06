@@ -57,7 +57,7 @@ const Home = () => {
         <Button
           variant="contained" // ボタンの見た目を変更
           component={Link}
-          to={`/stage?${link(30, 5, 30, 4.5, 650, 1000, 30, 0, "jack").toString()}`}
+          to={`/stage?${link(30, 5, 30, 4.5, 650, 1000, 30, 0, "kikikan").toString()}`}
           sx={{ fontSize: "2rem", backgroundColor: "red", color: "white", textAlign: "center" }} // 赤色に設定
         >
           危機感モード
@@ -65,7 +65,7 @@ const Home = () => {
         <Button
           variant="contained" // ボタンの見た目を変更
           component={Link}
-          to={`/stage?${link(30, 5, 30, 7, 400, 500, 60, 0, "kikikan").toString()}`}
+          to={`/stage?${link(30, 5, 30, 7, 400, 500, 60, 0, "jack").toString()}`}
           sx={{ fontSize: "2rem", backgroundColor: "red", color: "white", textAlign: "center" }} // 赤色に設定
         >
           カオスモード
