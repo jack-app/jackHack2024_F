@@ -241,28 +241,35 @@ const Game = () => {
           position: "absolute",
           left: window.innerWidth * 0.1,
         }} />
-      <Box>
-        <Typography
-          color="white"
-        >
-          任意のタイトル
-        </Typography>
+      
+        
+      <Box style={{ display: "flex", justifyContent: "center" }}>
+  {(gameOver || gameClear) && (
+    <>
+      <Button
+  component={Link}
+  to="/"
+  variant="contained" // ボタンの見た目を変更
+  sx={{ fontSize: "1rem", backgroundColor: "red", color: "white", textAlign: "center" }} // 赤色に設定
+>
+  ホームへ
+</Button>
+    </>
+  )}
+</Box>
 
-
-        {!(gameOver || gameClear) ? <Typography
-          color="white"
-        >
-          Elapsed Time: {elapsedTime} second
-          <br />
-          Time Left: {GameClearTime - elapsedTime} seconds
-        </Typography> :
-          <Button component={Link} to="/" >
-            ホームへ
-          </Button>}
-
-        {gameOver && <Typography color="white">Game Over</Typography>}
-        {gameClear && <Typography color="white">Game Clear</Typography>}
-      </Box>
+     
+      <Box style={{ display: "flex", justifyContent: "center", textAlign: "center" }}>
+  {!(gameOver || gameClear) ? (
+    <Typography color="white">
+      <Typography sx={{ fontSize: "1.5rem", textAlign: "center" }}>{GameClearTime - elapsedTime}</Typography>
+    </Typography>
+  ) : (
+ <></>
+  )}
+  {gameOver && <Typography color="white">このゲームをクリアできないから<br />お前はモテないんだよ！</Typography>}
+  {gameClear && <Typography color="white">素晴らしい！これでお前もモテモテだ！</Typography>}
+</Box>
       <Generator
         running={isAdRunning}
         nully={isAdNully}
