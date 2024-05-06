@@ -239,6 +239,7 @@ const Game = () => {
           height: GAME_HEIGHT,
           width: GAME_WIDTH,
           position: "absolute",
+          left: window.innerWidth * 0.1,
         }} />
       <Box>
         <Typography
@@ -298,15 +299,15 @@ const Game = () => {
             position: "absolute",
             top: "0",
             bottom: "0",
-            left: "50%",
-            borderLeft: "1px solid black",
+            // left: window.innerWidth * 0.5,
+            // borderLeft: "1px solid black",
           }}
         />
         <div
           style={{
             width: GAME_WIDTH,
             height: GAME_HEIGHT,
-            border: "1px solid black",
+            // border: "1px solid black",
             position: "relative",
           }}
         >
