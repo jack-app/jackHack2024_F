@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useCallback, useContext } from "react";
 import Generator from "../Ads/Generator";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { adContext } from "../../App";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const GAME_WIDTH = window.innerWidth * 0.8;
 const GAME_HEIGHT = window.innerHeight * 0.8;
@@ -23,6 +24,7 @@ const Game = () => {
   const OBSTACLE_SPAWN_RATE = Number(queryParams.get("obRate")) ?? 1000;
   const ArrowKeyOK = (Number(queryParams.get("arrow")) === 1);
   const PlayerSpeed_Mouse = Number(queryParams.get("meSpeed")) ?? 15;
+  const AD_INTERVAL = Number(queryParams.get("adInterval")) ?? 1000;
   const GameClearTime = Number(queryParams.get("time")) ?? 10;
   const gameType = queryParams.get("type") ?? "UNAGI";
 
@@ -237,12 +239,31 @@ const Game = () => {
         position: "absolute",
       }} />
       <Box>
-        任意のタイトル
+        <Typography
+          color="white"
+        >
+          任意のタイトル
+        </Typography>
+
+
+        {!(gameOver || gameClear) ? <Typography
+          color="white"
+        >
+          Elapsed Time: {elapsedTime} second
+          <br />
+          Time Left: {GameClearTime - elapsedTime} seconds
+        </Typography> :
+          <Button component={Link} to="/" >
+            ホームへ
+          </Button>}
+
+        {gameOver && <Typography color="white">Game Over</Typography>}
+        {gameClear && <Typography color="white">Game Clear</Typography>}
       </Box>
       <Generator
         running={isAdRunning}
         nully={isAdNully}
-        interval={2000}
+        interval={AD_INTERVAL}
         listStartX={[
           -0.3,
           -0.15,
@@ -337,32 +358,6 @@ const Game = () => {
           ))}
         </div>
       </div>
-
-      {!(gameOver || gameClear) && <>
-        <p>Elapsed Time: {elapsedTime} seconds</p>
-        <p>Time Left: {GameClearTime - elapsedTime} seconds</p>
-      </>}
-
-      {/* <p>Score: {score}</p> */}
-      {gameOver && <p>Game Over</p>}
-      {gameClear && <p>Game Clear</p>}
-      {/* <button onClick={startGame}>Start Game</button> */}
-      {/* (これらのボタン消して良いよ) */}
-      {/* <Button
-        onClick={() => {
-          setisAdNully(!isAdNully);
-        }}
-      >
-        {`nully→${isAdNully}`}
-      </Button>
-      <Button
-        onClick={() => {
-          setIsAdRunning(!isAdRunning);
-        }}
-      >
-        {`running→${isAdRunning}`}
-      </Button> */}
-
 
 
     </>

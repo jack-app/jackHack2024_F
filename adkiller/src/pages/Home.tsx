@@ -12,6 +12,7 @@ const Home = () => {
     obSi: number,
     obSp: number,
     obRa: number,
+    adInterval: number,
     time: number,
     arrow: number,
     type: string
@@ -24,6 +25,7 @@ const Home = () => {
     queryParams.append('obSize', String(obSi)); // 50
     queryParams.append("obSpeed", String(obSp)); // 5
     queryParams.append("obRate", String(obRa)); // 100
+    queryParams.append("adInterval", String(adInterval)); // 1000
     queryParams.append("time", String(time)); // 100
     queryParams.append("arrow", String(arrow)); // 1でarrow有り
     queryParams.append("type", type);
@@ -50,17 +52,17 @@ const Home = () => {
       </Button> */}
       <Button
         component={Link}
-        to={`/stage?${link(50, 15, 50, 5, 1000, 100, 0, "ad").toString()}`}>    
+        to={`/stage?${link(50, 15, 50, 5, 1000, 1000, 100, 0, "ad").toString()}`}>
         Ad
       </Button>
       <Button
         component={Link}
-        to={`/stage?${link(50, 15, 50, 5, 100, 100, 0, "jack").toString()}`}>
+        to={`/stage?${link(50, 15, 50, 5, 100, 1000, 100, 0, "jack").toString()}`}>
         jack
       </Button>
       <Button
         component={Link}
-        to={`/stage?${link(50, 15, 50, 5, 100, 100, 0, "kikikan").toString()}`}>
+        to={`/stage?${link(50, 15, 50, 5, 100, 1000, 100, 0, "kikikan").toString()}`}>
         危機感
       </Button>
     </>
