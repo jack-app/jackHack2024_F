@@ -69,8 +69,10 @@ const Home = () => {
           カオスモード
         </Button>
         <div style={{ height: "20px" }} />
-        <Typography color="white" sx={{ fontSize: "1.2rem", color: "white", textAlign: "center" }}>
-          このゲームクリアできない男、ガチで危機感持ったほうがいいと思う。
+        <Typography color="white" sx={{ fontSize: "1.3rem", color: "white", textAlign: "center" }}>
+          ルール説明<br />
+          画面の左半分をクリックで左に移動<br />
+          画面の右半分をクリックで右に移動
         </Typography>
       </div>
     </div>
