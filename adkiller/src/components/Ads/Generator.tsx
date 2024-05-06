@@ -80,7 +80,8 @@ const Generator: React.FC<tGenerator> = (props) => {
           [`${process.env.PUBLIC_URL}/${strType}/kate.png`, "https://katesawada.github.io/"],
           [`${process.env.PUBLIC_URL}/${strType}/nako.png`, "https://nac-39.com/"],
           [`${process.env.PUBLIC_URL}/${strType}/enpitsu.png`, "https://vps.hbenpitsu.net/portfolio/"],
-          [`${process.env.PUBLIC_URL}/${strType}/mattunnkun.png`, "https://mattsun-kun-portfolio.vercel.app/"]
+          [`${process.env.PUBLIC_URL}/${strType}/mattunnkun.png`, "https://mattsun-kun-portfolio.vercel.app/"],
+          [`${process.env.PUBLIC_URL}/${strType}/jakkunn.png`, "https://jackun-blog.vercel.app/"]
           ,
         ]
         break;
